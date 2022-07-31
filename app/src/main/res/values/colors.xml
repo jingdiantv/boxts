@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml  version="1.0" encoding="utf-8" ?>
 <resources>
     <color name="color_6200EE">#6200EE</color>
     <color name="color_3700B3">#3700B3</color>
@@ -26,4 +26,9 @@
     <color name="color_6C3D3D3D">#6c3d3d3d</color>
     <color name="color_BBFFFFFF">#bbffffff</color>
     <color name="color_FFFFFF">#ffffffff</color>
+    <color name="color_33FFFFFF">#942e2e2e</color>
+    <color name="color_A413CEBF">#e007f8e5</color>
+    <color name="color_A313CEBF">#3c6bf7eb</color>
+    <color name="color_A213CEBF">#ffffffff</color>
+    <color name="color_A113CEBF">#9e444444</color>
 </resources>
