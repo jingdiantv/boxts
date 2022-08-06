@@ -400,7 +400,7 @@
         android:focusableInTouchMode="false"
         android:tag="play_load_net_speed"
         android:text="0"
-        android:textColor="@color/color_FFFFFF"
-        android:textSize="@dimen/ts_24" />
+        android:textColor="@color/color_6CFFFFFF"
+        android:textSize="@dimen/ts_20" />
         
 </FrameLayout>
