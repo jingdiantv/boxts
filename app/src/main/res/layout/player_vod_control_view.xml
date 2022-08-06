@@ -167,6 +167,7 @@
 
             <TextView
                 android:id="@+id/play_time_step"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/vs_5"
@@ -179,6 +180,7 @@
                 android:textSize="@dimen/ts_24"/>
             <TextView
                 android:id="@+id/play_time_reset"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/vs_5"
@@ -398,7 +400,7 @@
         android:focusableInTouchMode="false"
         android:tag="play_load_net_speed"
         android:text="0"
-        android:textColor="@color/color_6CFFFFFF"
-        android:textSize="@dimen/ts_20" />
+        android:textColor="@color/color_FFFFFF"
+        android:textSize="@dimen/ts_24" />
         
 </FrameLayout>
