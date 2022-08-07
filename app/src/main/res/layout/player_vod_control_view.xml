@@ -167,7 +167,6 @@
 
             <TextView
                 android:id="@+id/play_time_step"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/vs_5"
@@ -180,7 +179,6 @@
                 android:textSize="@dimen/ts_24"/>
             <TextView
                 android:id="@+id/play_time_reset"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/vs_5"
