@@ -432,10 +432,10 @@ public class VodController extends BaseController {
 
     public void setHint() {
         Date date = new Date();
-        String strDateFormat = "yyyy-MM-dd HH:mm";
-        SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
-        String now = sdf.format(date);
-        setHint(now);
+            @SuppressLint("SimpleDateFormat")
+            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+            tvDate.setText(timeFormat.format(date));
+            mHandler.postDelayed(this, 1000);
     }
 
     public void resetSpeed() {
