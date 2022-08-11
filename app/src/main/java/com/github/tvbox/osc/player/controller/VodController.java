@@ -560,7 +560,6 @@ public class VodController extends BaseController {
                 startProgress();
                 break;
             case VideoView.STATE_PAUSED:
-                setHint();
                 break;
             case VideoView.STATE_ERROR:
                 listener.errReplay();
