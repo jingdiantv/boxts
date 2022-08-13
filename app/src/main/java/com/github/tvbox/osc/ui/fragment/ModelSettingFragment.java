@@ -103,30 +103,27 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "已打开" : "已关闭");
             }
         });
-        findViewById(R.id.llHomeNum).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llHistoryNum).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
-                int defaultPos = Hawk.get(HawkConfig.HOME_NUM, 0);
+                int defaultPos = Hawk.get(HawkConfig.HISTORY_NUM, 0);
                 ArrayList<Integer> types = new ArrayList<>();
                 types.add(0);
                 types.add(1);
                 types.add(2);
-                types.add(3);
-                types.add(4);
-
                 SelectDialog<Integer> dialog = new SelectDialog<>(mActivity);
-                dialog.setTip("历史条数保留");
+                dialog.setTip("保留历史记录数量");
                 dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<Integer>() {
                     @Override
                     public void click(Integer value, int pos) {
-                        Hawk.put(HawkConfig.HOME_NUM, value);
-                        tvHomeNum.setText(HistoryHelper.getHomeRecName(value));
+                        Hawk.put(HawkConfig.HISTORY_NUM, value);
+                        tvHistoryNum.setText(HistoryHelper.getHistoryNumName(value));
                     }
 
                     @Override
                     public String getDisplay(Integer val) {
-                        return HistoryHelper.getHomeRecName(val);
+                        return HistoryHelper.getHistoryNumName(val);
                     }
                 }, new DiffUtil.ItemCallback<Integer>() {
                     @Override
