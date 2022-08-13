@@ -13,8 +13,8 @@ import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.orhanobut.hawk.Hawk;
 
+import com.orhanobut.hawk.Hawk;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,9 +82,8 @@ public class RoomDataManger {
     }
 
     public static List<VodInfo> getAllVodRecord(int limit) {
-        // 历史记录超过60条时, 删除最旧的数据 只保留50条.
         int count = AppDataManager.get().getVodRecordDao().getCount();
-        Integer index = Hawk.get(HawkConfig.HOME_NUM, 0);
+        Integer index = Hawk.get(HawkConfig.HISTORY_NUM, 0);
         Integer hisNum = HistoryHelper.getHisNum(index);
         if ( count > hisNum ) {
             AppDataManager.get().getVodRecordDao().reserver(hisNum);
