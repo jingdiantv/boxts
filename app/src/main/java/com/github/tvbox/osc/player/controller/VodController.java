@@ -1,6 +1,5 @@
 package com.github.tvbox.osc.player.controller;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -28,13 +27,12 @@ import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import xyz.doikki.videoplayer.player.VideoView;
@@ -93,7 +91,7 @@ public class VodController extends BaseController {
     LinearLayout mParseRoot;
     TvRecyclerView mGridView;
     TextView mPlayTitle;
-    TextView tvDate;
+    TextView mPlayHint;
     TextView mNextBtn;
     TextView mPreBtn;
     TextView mPlayerScaleBtn;
@@ -109,26 +107,13 @@ public class VodController extends BaseController {
     Runnable myRunnable;
     int myHandleSeconds = 5000;//闲置多少毫秒秒关闭底栏  默认5秒
 
-    private boolean shouldShowBottom = true;
-    private Runnable mRunnable = new Runnable() {
-        @SuppressLint({"DefaultLocale", "SetTextI18n"})
-        @Override
-        public void run() {
-            Date date = new Date();
-            @SuppressLint("SimpleDateFormat")
-            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-            tvDate.setText(timeFormat.format(date));
-            mHandler.postDelayed(this, 1000);
-        }
-    };
-
     @Override
     protected void initView() {
         super.initView();
         mCurrentTime = findViewById(R.id.curr_time);
         mTotalTime = findViewById(R.id.total_time);
         mPlayTitle = findViewById(R.id.tv_info_name);
-        tvDate = findViewById(R.id.tv_info_time);
+        mPlayHint = findViewById(R.id.tv_info_hint);
         mSeekBar = findViewById(R.id.seekBar);
         mProgressRoot = findViewById(R.id.tv_progress_container);
         mProgressIcon = findViewById(R.id.tv_progress_icon);
@@ -441,6 +426,18 @@ public class VodController extends BaseController {
         mPlayTitle.setText(playTitleInfo);
     }
 
+    public void setHint(String hint) {
+        mPlayHint.setText(hint);
+    }
+
+    public void setHint() {
+        Date date = new Date();
+        String strDateFormat = "yyyy-MM-dd HH:mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
+        String now = sdf.format(date);
+        setHint(now);
+    }
+
     public void resetSpeed() {
         skipEnd = true;
         mHandler.removeMessages(1004);
@@ -560,6 +557,7 @@ public class VodController extends BaseController {
                 startProgress();
                 break;
             case VideoView.STATE_PAUSED:
+                setHint();
                 break;
             case VideoView.STATE_ERROR:
                 listener.errReplay();
