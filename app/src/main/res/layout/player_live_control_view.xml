@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml  version="1.0" encoding="utf-8" ?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -28,7 +29,7 @@
                 android:layout_gravity="center"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:src="@drawable/icon_play" />
+                android:src="@drawable/icon_play"/>
 
             <TextView
                 android:id="@+id/tv_pause_progress_text"
@@ -42,7 +43,7 @@
                 android:visibility="gone"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/ts_30"
-                tools:text="100" />
+                tools:text="100"/>
         </LinearLayout>
 
     </FrameLayout>
@@ -61,7 +62,7 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/ts_30"
         android:visibility="gone"
-        tools:text="100" />
+        tools:text="100"/>
 
     <ProgressBar
         android:layout_width="@dimen/vs_50"
@@ -71,6 +72,19 @@
         android:indeterminateDrawable="@drawable/anim_loading"
         android:indeterminateOnly="true"
         android:tag="vod_control_loading"
-        android:visibility="gone" />
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_play_load_net_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/vs_40"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:tag="play_load_net_speed"
+        android:text="0"
+        android:textColor="@color/color_6CFFFFFF"
+        android:textSize="@dimen/ts_20"/>
 
 </FrameLayout>
